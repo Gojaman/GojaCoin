@@ -1,0 +1,24 @@
+Resources:
+  LambdaFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Role: arn:aws:iam::YOUR_IAM_ROLE
+      Code:
+        S3Bucket: YOUR_S3_BUCKET_NAME
+        S3Key: lambda_function.zip
+      Runtime: python3.8
+
+  DynamoDBTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: GojaCoinTransactions
+      AttributeDefinitions:
+        - AttributeName: TransactionID
+          AttributeType: S
+      KeySchema:
+        - AttributeName: TransactionID
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5

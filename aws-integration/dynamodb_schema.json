@@ -1,0 +1,13 @@
+{
+  "TableName": "GojaCoinTransactions",
+  "KeySchema": [
+    { "AttributeName": "TransactionID", "KeyType": "HASH" }
+  ],
+  "AttributeDefinitions": [
+    { "AttributeName": "TransactionID", "AttributeType": "S" }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 5,
+    "WriteCapacityUnits": 5
+  }
+}
